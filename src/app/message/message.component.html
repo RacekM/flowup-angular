@@ -1,11 +1,17 @@
 <div class="message">
+
   <div class="header">
-    <div class="author" [style.color]="author.color">
-      {{ author.name }}
+
+    <div class="author" [style.color]="message.author.color">
+      {{ message.author.name }}
     </div>
+
     <div class="time">{{timestampString}}</div>
+
   </div>
+
   <div class="text-wrapper">
-    <div class="text"> {{ text }} </div>
+    <div class="text"> {{ message.text }} </div>
   </div>
+
 </div>

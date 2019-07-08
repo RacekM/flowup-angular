@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {MessageModel} from '../models/MessageModel';
 
 @Component({
   selector: 'app-message',
@@ -8,21 +9,12 @@ import {Component, Input, OnInit} from '@angular/core';
 export class MessageComponent {
 
   @Input()
-  text: string;
-  @Input()
-  author: Author;
-  @Input()
-  timestamp: number;
+  message: MessageModel;
 
   get timestampString(): Date {
     const date = new Date();
-    date.setMilliseconds(this.timestamp);
+    date.setMilliseconds(this.message.timestamp);
     return date;
   }
 
-}
-
-interface Author {
-  name: string;
-  color: string;
 }
