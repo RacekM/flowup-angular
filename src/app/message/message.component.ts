@@ -12,7 +12,13 @@ export class MessageComponent {
   @Input()
   author: Author;
   @Input()
-  timestamp: bigint;
+  timestamp: number;
+
+  get timestampString(): Date {
+    const date = new Date();
+    date.setMilliseconds(this.timestamp);
+    return date;
+  }
 
 }
 
