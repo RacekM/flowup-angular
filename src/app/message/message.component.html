@@ -1,9 +1,9 @@
 <div class="message">
   <div class="header">
-    <div class="author">
+    <div class="author" [style.color]="author.color">
       {{ author.name }}
     </div>
-    <div class="time">{{ timestamp }}</div>
+    <div class="time">{{ timestamp | date }}</div>
   </div>
   <div class="text-wrapper">
     <div class="text"> {{ text }} </div>
