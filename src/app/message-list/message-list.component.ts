@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {MessageService} from '../message.service';
+import {MessageModel} from '../models/MessageModel';
 
 @Component({
   selector: 'app-message-list',
@@ -8,9 +9,14 @@ import {MessageService} from '../message.service';
 })
 export class MessageListComponent {
 
-  readonly messages = this.messageService.getMessages();
+  messages: MessageModel[];
 
   constructor(private messageService: MessageService) {
+    this.messageService.messages$.subscribe(newMessages => this.refreshMessages(newMessages));
+  }
+
+  refreshMessages(newMessages: MessageModel[]) {
+    this.messages = newMessages;
   }
 
 }
