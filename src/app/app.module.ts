@@ -7,13 +7,15 @@ import {MessageComponent} from './message/message.component';
 import {MessageListComponent} from './message-list/message-list.component';
 import {MessageFormComponent} from './message-form/message-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { EmojiPipe } from './emoji.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MessageComponent,
     MessageListComponent,
-    MessageFormComponent
+    MessageFormComponent,
+    EmojiPipe
   ],
   imports: [
     BrowserModule,

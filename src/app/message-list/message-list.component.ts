@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {MessageService} from '../message.service';
 import {MessageModel} from '../models/MessageModel';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-message-list',
@@ -9,14 +10,10 @@ import {MessageModel} from '../models/MessageModel';
 })
 export class MessageListComponent {
 
-  messages: MessageModel[];
+  readonly messages$: Observable<MessageModel[]>;
 
   constructor(private messageService: MessageService) {
-    this.messageService.messages$.subscribe(newMessages => this.refreshMessages(newMessages));
-  }
-
-  refreshMessages(newMessages: MessageModel[]) {
-    this.messages = newMessages;
+    this.messages$ =  messageService.messages$;
   }
 
 }
