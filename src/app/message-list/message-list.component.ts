@@ -38,4 +38,9 @@ export class MessageListComponent {
   sendLike(messageId: string) {
     this.likesService.sendLike(messageId);
   }
+
+  trackById(index: number, message: MessageWithLikesModel) {
+    return message.id;
+  }
+
 }
