@@ -6,12 +6,16 @@
       {{ message.author?.name }}
     </div>
 
-    <div class="time">{{message.timestamp| date}}</div>
+    <div class="time">{{message.timestamp | date}}</div>
 
   </div>
 
   <div class="text-wrapper">
     <div class="text"> {{ message.text | emoji }} </div>
+    <div class="likes" (click)="like()">
+      <i class="material-icons like-icon">thumb_up</i>
+      <span class="likes-count">{{ message.likes }}</span>
+    </div>
   </div>
 
 </div>

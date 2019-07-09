@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {MessageModel} from '../models/MessageModel';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {MessageWithLikesModel} from '../models/messageWithLikes.model';
 
 @Component({
   selector: 'app-message',
@@ -9,7 +9,9 @@ import {MessageModel} from '../models/MessageModel';
 export class MessageComponent {
 
   @Input()
-  message: MessageModel;
+  message: MessageWithLikesModel;
+
+  @Output() messageLiked = new EventEmitter();
 
   get timestampString(): Date {
     const date = new Date();
@@ -17,4 +19,7 @@ export class MessageComponent {
     return date;
   }
 
+  like() {
+    this.messageLiked.emit();
+  }
 }
