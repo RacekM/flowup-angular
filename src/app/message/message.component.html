@@ -2,8 +2,8 @@
 
   <div class="header">
 
-    <div class="author" [style.color]="message.author.color">
-      {{ message.author.name }}
+    <div class="author" [style.color]="message.author?.color">
+      {{ message.author?.name }}
     </div>
 
     <div class="time">{{message.timestamp| date}}</div>

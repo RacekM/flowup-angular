@@ -1,0 +1,39 @@
+<form class="form" [formGroup]="form" (ngSubmit)="submitMessage()">
+  <div class="author">
+    <label class="form-control">
+      Name:
+      <input class="small-input" formControlName="name"/>
+    </label>
+    <div class="color">
+      <label class="form-control">
+        Color:
+        <input class="small-input" size="7" formControlName="color"/>
+      </label>
+      <div class="color-preview" [style.background-color]="form.value.color"></div>
+    </div>
+  </div>
+  <input
+    class="big-input"
+    placeholder="Write a message ..."
+    formControlName="text"
+  />
+  <button class="submit-button" [disabled]="!form.valid">Submit</button>
+
+  <div class="error" *ngIf="form.controls.name.errors?.required">
+    Name is required.
+  </div>
+
+  <div class="error" *ngIf="form.controls.text.errors?.required">
+    Text is required.
+  </div>
+
+  <div class="error" *ngIf="form.controls.color.errors?.required">
+    Color is required.
+  </div>
+
+  <div class="error" *ngIf="form.controls.color.errors?.pattern">
+    Color doesnt corresponds to pattern.
+  </div>
+
+
+</form>
